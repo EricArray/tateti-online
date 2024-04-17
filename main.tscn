@@ -1,0 +1,377 @@
+[gd_scene load_steps=12 format=3 uid="uid://tm5552dvopby"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_0u23h"]
+[ext_resource type="Script" path="res://Board.gd" id="1_l8daq"]
+[ext_resource type="Texture2D" uid="uid://nmfs8eyg2ye1" path="res://background.png" id="1_ofon5"]
+[ext_resource type="Texture2D" uid="uid://t1rtu20wq3g6" path="res://player-1.png" id="2_a24r1"]
+[ext_resource type="Texture2D" uid="uid://dlvf54t1ylv73" path="res://player-2.png" id="3_a2ryn"]
+[ext_resource type="Texture2D" uid="uid://u7wwvqfa0bip" path="res://player-3.png" id="4_owgxl"]
+[ext_resource type="Theme" uid="uid://brxpcd27iu0cy" path="res://new_theme.tres" id="6_qqfqi"]
+[ext_resource type="Texture2D" uid="uid://cth0kfd6lsvh3" path="res://dice.png" id="8_20ccf"]
+[ext_resource type="AudioStream" uid="uid://w6de0jji61ww" path="res://infographic-pop-7-197874.mp3" id="9_4h680"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okvhx"]
+size = Vector2(138, 136)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0k6iv"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0u23h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Board" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_l8daq")
+shapes = Array[Texture2D]([ExtResource("2_a24r1"), ExtResource("3_a2ryn"), ExtResource("4_owgxl")])
+
+[node name="Background" type="Sprite2D" parent="Board"]
+texture = ExtResource("1_ofon5")
+
+[node name="Mark00" type="Area2D" parent="Board"]
+position = Vector2(-164, -156)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark00"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark00"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark01" type="Area2D" parent="Board"]
+position = Vector2(-3, -143)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark01"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark01"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark02" type="Area2D" parent="Board"]
+position = Vector2(165, -152)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark02"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark02"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark10" type="Area2D" parent="Board"]
+position = Vector2(-152, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark10"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark10"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark11" type="Area2D" parent="Board"]
+position = Vector2(2, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark11"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark11"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark12" type="Area2D" parent="Board"]
+position = Vector2(163, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark12"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark12"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark20" type="Area2D" parent="Board"]
+position = Vector2(-153, 159)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark20"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark20"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark21" type="Area2D" parent="Board"]
+position = Vector2(-5, 151)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark21"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark21"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="Mark22" type="Area2D" parent="Board"]
+position = Vector2(167, 168)
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Mark22"]
+texture = ExtResource("3_a2ryn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/Mark22"]
+shape = SubResource("RectangleShape2D_okvhx")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_qqfqi")
+
+[node name="MainMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/MainMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/MainMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ta Te Ti"
+label_settings = SubResource("LabelSettings_0k6iv")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Server"
+
+[node name="MainMenuServerAddress" type="LineEdit" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "18.116.231.238"
+expand_to_text_length = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Your name"
+
+[node name="GenRandomName" type="Button" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("8_20ccf")
+
+[node name="YourName" type="LineEdit" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+placeholder_text = "Enter your name here"
+expand_to_text_length = true
+
+[node name="FindAMatch" type="Button" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Find a match"
+
+[node name="HostAsServer" type="Button" parent="UI/CenterContainer/MainMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Host as server"
+
+[node name="FindingOpponentMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/FindingOpponentMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/FindingOpponentMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/FindingOpponentMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Finding an opponent..."
+
+[node name="CancelFindOpponent" type="Button" parent="UI/CenterContainer/FindingOpponentMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel
+"
+
+[node name="ConnectingMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/ConnectingMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/ConnectingMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/ConnectingMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Connecting to server..."
+
+[node name="Cancel" type="Button" parent="UI/CenterContainer/ConnectingMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cancel
+"
+
+[node name="ServerMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/ServerMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/ServerMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/ServerMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Server"
+
+[node name="Label3" type="Label" parent="UI/CenterContainer/ServerMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Connected players:"
+
+[node name="ConnectedPlayersList" type="VBoxContainer" parent="UI/CenterContainer/ServerMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="UI/CenterContainer/ServerMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Listening to connections..."
+
+[node name="ShutdownServer" type="Button" parent="UI/CenterContainer/ServerMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Shutdown server"
+
+[node name="WinnerMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/WinnerMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/WinnerMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/WinnerMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_0k6iv")
+horizontal_alignment = 1
+
+[node name="WinnerPlayAgain" type="Button" parent="UI/CenterContainer/WinnerMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play again"
+
+[node name="LoserMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/LoserMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/LoserMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/LoserMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "YOU LOSE!"
+label_settings = SubResource("LabelSettings_0k6iv")
+horizontal_alignment = 1
+
+[node name="LoserPlayAgain" type="Button" parent="UI/CenterContainer/LoserMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play again"
+
+[node name="DrawMenu" type="PanelContainer" parent="UI/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer/DrawMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/DrawMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/CenterContainer/DrawMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "IT'S A DRAW!"
+label_settings = SubResource("LabelSettings_0k6iv")
+horizontal_alignment = 1
+
+[node name="DrawPlayAgain" type="Button" parent="UI/CenterContainer/DrawMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play again"
+
+[node name="MatchTitleContainer" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 50.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MatchTitleContainer"]
+layout_mode = 2
+
+[node name="MatchTitle" type="Label" parent="UI/MatchTitleContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_0k6iv")
+horizontal_alignment = 1
+
+[node name="MatchPlayers" type="Label" parent="UI/MatchTitleContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TurnIndicatorContainer" type="PanelContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -23.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TurnIndicatorContainer"]
+layout_mode = 2
+
+[node name="TurnIndicatorLabel" type="Label" parent="UI/TurnIndicatorContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4h680")
